@@ -16,11 +16,18 @@ class JournalEntry
     {
         string [] prompts =
         {
-            "How was your day: ",
-            "Tell me about someone you met."
+            "What was the best part of your day?",
+            "Who was the most interesting person you interacted with today?",
+            "How did you see the hand of the Lord in your life today?",
+            "What was the strongest emotion you felt today?",
+            "If you had one thing you could do over today, what would it be?"
         };
+
+        Random randomGenerator = new Random();
+        int magicNum = randomGenerator.Next(0, 5);
+        
         _date = DateTime.Now.ToString();
-        _prompt = prompts[0];
+        _prompt = prompts[magicNum];
         Console.Write($"{_prompt}: ");
         _response = Console.ReadLine();
     }
