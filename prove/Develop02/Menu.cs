@@ -26,8 +26,6 @@ class Menu
                 Console.WriteLine("Please enter a valid number.");
                 input = 0;
             }
-
-            
         }
         return input;
     }
