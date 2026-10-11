@@ -31,5 +31,4 @@ class JournalEntry
         Console.Write($"{_prompt}: ");
         _response = Console.ReadLine();
     }
-
 }
