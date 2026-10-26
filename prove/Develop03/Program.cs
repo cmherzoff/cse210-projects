@@ -4,17 +4,29 @@ class Program
 {
     static void Main(string[] args)
     {
-        // Word myWord = new Word("Secret");
+        Scripture myScripture = new Scripture("2 Nephi", 2, 25,
+        "Adam fell that men might be; and men are, that they might have joy.");
 
-        // myWord.Display();
-        // myWord.Hide();
-        // Console.WriteLine();
-        // myWord.Display();
+        string response = "";
 
-        Scripture myScripture = new Scripture("Moses", 1, 39,
-        "Behold, this is my work and my glory, to bring to pass the immortality and eternal life of man.");
+        while (response != "quit" && !myScripture.IsFullyHidden())
+        {
+            Console.Clear();
+            myScripture.ShowScripture();
 
-        myScripture.ShowScripture();
+            Console.WriteLine("Press Enter to continue or type 'quit' to exit.");
+            response = Console.ReadLine();
+
+            if (response != "quit")
+            {
+                myScripture.HideRandomWords();
+            }
+        }
         
+        if (myScripture.IsFullyHidden())
+        {
+            Console.Clear();
+            myScripture.ShowScripture();
+        }        
     }
 }
