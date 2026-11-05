@@ -1,8 +1,24 @@
 class BaseActivity
 {
+    private int _duration;
+    private DateTime _endTime;
     public BaseActivity()
     {
+        _duration = 30;   // Replace with call to ObtainDuration();
+    }
+
+    public void StartActivity()
+    {
         // COMPLETE
+    }
+    public void StartTimer()
+    {
+        _endTime = DateTime.Now.AddSeconds(_duration);
+    }
+
+    public bool HasTimerExpired()
+    {
+        return DateTime.Now > _endTime;
     }
 
     public void RunCountDownMessage(string message, int seconds)
@@ -20,8 +36,11 @@ class BaseActivity
     public void RunSpinnerMessage(string message, int seconds)
     {
         Console.CursorVisible = false;
+        Console.Clear();
+        Console.Write($"{message} ");
         // DateTime now = DateTime.Now;
         DateTime endTime = DateTime.Now.AddSeconds(seconds);
+
         // for(int i = 0; i < seconds; i++)
         while (DateTime.Now < endTime)
         {
@@ -34,9 +53,43 @@ class BaseActivity
             Console.Write("-");
             Thread.Sleep(200);
             Console.Write("\b");
-
         }
-        Console.CursorVisible = true;
 
+        Console.Clear();
+
+        // Console.Write($"{message} ");
+        // string spinnerAnimation = "-\\|/";
+        // int index = 0;
+        // for (int i=0; i<20; i++)
+        // {
+        //     Console.Write($"{spinnerAnimation[index++ % spinnerAnimation.Length]}");
+        //     Console.Write("\b");
+        //     Thread.Sleep(300);
+        // }
+        // Console.Clear();
+
+        // Console.Write($"{message} ");
+        // string fishAnimation = "><))))o>";
+        // for (int i=0; i<20; i++)
+        // {
+        //     Console.Write($" {fishAnimation}");
+        //     Console.Write("\b\b\b\b\b\b\b\b");
+        //     Thread.Sleep(300);
+        // }
+        // Console.Clear();
+
+        // Console.Write($"{message} ");
+        // string faceAnimation = "(^_^)(-_-)";
+        // for (int i=0; i<20; i++)
+        // {
+        //     Console.Write($"{faceAnimation[0..5]}");
+        //     Thread.Sleep(300);
+        //     Console.Write("\b\b\b\b\b");
+        //     Console.Write($"{faceAnimation[5..]}");
+        //     Thread.Sleep(300);
+        //     Console.Write("\b\b\b\b\b");
+        // }
+
+        Console.CursorVisible = true;
     }
 }

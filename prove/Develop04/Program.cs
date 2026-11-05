@@ -4,9 +4,13 @@ class Program
 {
     static void Main(string[] args)
     {
-        BaseActivity activity = new BaseActivity();
+        // BaseActivity activity = new BaseActivity();
 
-        activity.RunCountDownMessage("Get Ready", 5);
-        activity.RunSpinnerMessage("Well done", 5);
+        // activity.RunCountDownMessage("Get Ready", 5);
+        // activity.RunSpinnerMessage("Well done", 5);
+
+        BreathingActivity breathingActivity = new BreathingActivity();
+
+        breathingActivity.RunActivity();
     }
 }
