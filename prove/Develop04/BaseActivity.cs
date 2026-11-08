@@ -2,14 +2,35 @@ class BaseActivity
 {
     private int _duration;
     private DateTime _endTime;
-    public BaseActivity()
+    private string _activityName;
+    private string _description;
+    public BaseActivity(string activityName, string description)
     {
-        _duration = 30;   // Replace with call to ObtainDuration();
+        _activityName = activityName;
+        _description = description;
     }
 
     public void StartActivity()
     {
-        // COMPLETE
+        Console.Clear();
+        Console.WriteLine(_activityName);
+        Console.WriteLine(_description);
+
+        Console.Write("How long, in seconds, will this session be? ");
+        _duration = int.Parse(Console.ReadLine());
+
+        RunCountDownMessage("Get ready", 5);
+
+        StartTimer();
+    }
+
+    public void EndActivity()
+    {
+        Console.WriteLine("Well done!");
+        RunSpinnerMessage("", 5);
+
+        Console.WriteLine($"You have completed {_duration} seconds of the {_activityName} activity.");
+        RunSpinnerMessage("", 5);
     }
     public void StartTimer()
     {
@@ -54,8 +75,6 @@ class BaseActivity
             Thread.Sleep(200);
             Console.Write("\b");
         }
-
-        Console.Clear();
 
         // Console.Write($"{message} ");
         // string spinnerAnimation = "-\\|/";
