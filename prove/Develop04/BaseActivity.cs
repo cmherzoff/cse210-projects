@@ -13,9 +13,11 @@ class BaseActivity
     public void StartActivity()
     {
         Console.Clear();
-        Console.WriteLine(_activityName);
+        Console.WriteLine($"Welcome to the {_activityName}.");
+        Console.WriteLine();
         Console.WriteLine(_description);
 
+        Console.WriteLine();
         Console.Write("How long, in seconds, will this session be? ");
         _duration = int.Parse(Console.ReadLine());
 
@@ -26,10 +28,11 @@ class BaseActivity
 
     public void EndActivity()
     {
+        Console.Clear();
         Console.WriteLine("Well done!");
         RunSpinnerMessage("", 5);
 
-        Console.WriteLine($"You have completed {_duration} seconds of the {_activityName} activity.");
+        Console.WriteLine($"You have completed {_duration} seconds of the {_activityName}.");
         RunSpinnerMessage("", 5);
     }
     public void StartTimer()
@@ -47,17 +50,17 @@ class BaseActivity
         Console.CursorVisible = false;
         for(int i = seconds; i > 0; i--)
         {
-            Console.Clear();
-            Console.WriteLine($"{message} - {i}");
+            // Console.Clear();
+            Console.Write($"\r{message} - {i}");
             Thread.Sleep(1000);
         }
+        Console.WriteLine();
         Console.CursorVisible = true;
     }
 
     public void RunSpinnerMessage(string message, int seconds)
     {
         Console.CursorVisible = false;
-        Console.Clear();
         Console.Write($"{message} ");
         // DateTime now = DateTime.Now;
         DateTime endTime = DateTime.Now.AddSeconds(seconds);
@@ -110,5 +113,6 @@ class BaseActivity
         // }
 
         Console.CursorVisible = true;
+        Console.WriteLine();
     }
 }
