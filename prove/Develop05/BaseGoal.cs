@@ -35,13 +35,13 @@ abstract class BaseGoal
 
     private void SetDescription()
     {
-        Console.Write($"What is the description of {_name} goal: ");
+        Console.Write($"What is the description of your {_name} goal: ");
         _description = Console.ReadLine();
     }
 
     private void SetPoints()
     {
-        Console.Write($"What are the points for {_name} goal: ");
+        Console.Write($"What are the points for your {_name} goal: ");
         _points = int.Parse(Console.ReadLine());
     }
 
@@ -85,6 +85,12 @@ abstract class BaseGoal
     {
         return _goalType;
     }
+
+    public virtual string GetSaveString()
+    {
+        return $"{GetGoalType()}|{GetName()}|{GetDescription()}|{GetPoints()}|{IsComplete()}";
+    }
+
 
     public abstract int RecordEvent();
 }

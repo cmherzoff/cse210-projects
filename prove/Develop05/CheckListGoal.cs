@@ -40,10 +40,31 @@ class ChecklistGoal : BaseGoal
 
         return 0;
     }
+
     public override string GetConsoleString()
     {
         string goalString = base.GetConsoleString();
 
         return $"{goalString} -- Completed {_amountCompleted}/{_targetAmount} times";
+    }
+
+    public int GetAmountCompleted()
+    {
+        return _amountCompleted;
+    }
+
+    public int GetTargetAmount()
+    {
+        return _targetAmount;
+    }
+
+    public int GetBonusPoints()
+    {
+        return _bonusPoints;
+    }
+
+    public override string GetSaveString()
+    {
+        return $"{base.GetSaveString()}|{GetAmountCompleted()}|{GetTargetAmount()}|{GetBonusPoints()}";
     }
 }
