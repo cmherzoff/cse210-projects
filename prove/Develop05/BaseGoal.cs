@@ -1,3 +1,6 @@
+using System.Reflection.Metadata.Ecma335;
+using System.Runtime.InteropServices.Marshalling;
+
 abstract class BaseGoal
 {
     private string _name;
@@ -49,14 +52,38 @@ abstract class BaseGoal
         if (_complete)
             completeString = "X";
 
-        return $"[{completeString}] {_goalType} Goal Name: {_name}, Description: {_description}, Points: {_points}";
-           
+        return $"[{completeString}] {_goalType} Goal Name: {_name}, Description: {_description}, Points: {_points}";      
     }
 
     public int MarkComplete()
     {
         _complete = true;
         return _points;
+    }
+
+    public bool IsComplete()
+    {
+        return _complete;
+    }
+
+    public int GetPoints()
+    {
+        return _points;
+    }
+
+    public String GetName()
+    {
+        return _name;
+    }
+
+    public string GetDescription()
+    {
+        return _description;
+    }
+
+    public string GetGoalType()
+    {
+        return _goalType;
     }
 
     public abstract int RecordEvent();
