@@ -92,6 +92,11 @@ class Goals
         Console.WriteLine("Goals saved successfully.");
     }
 
+    public int GetScore()
+    {
+        return _score;
+    }
+    
     public void LoadGoals()
     {
         string[] lines = File.ReadAllLines("goals.txt");
